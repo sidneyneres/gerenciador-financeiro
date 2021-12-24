@@ -69,9 +69,6 @@ public class LancamentoController {
 			UriComponentsBuilder uriBuilder) {
 		Movimentacao movimentacao = movimentacaoInput.converte(categoriaRepository);
 		
-		// to do: verificar o limite da transacao por categoria
-		// Se ultrapassou = Exibir mensagem
-		// Senao = salvar a transacao no banco
 		movimentacaoRepository.save(movimentacao);
 
 		URI uri = uriBuilder.path("/topicos/{id}").buildAndExpand(movimentacao.getId()).toUri();
